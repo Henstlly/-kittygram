@@ -39,6 +39,7 @@ services:
       - backend
       - frontend
     volumes:
+      - static_volume:/usr/share/nginx/html/static
       - media_volume:/usr/share/nginx/html/media
       - frontend_build:/usr/share/nginx/html
 
