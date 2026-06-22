@@ -13,8 +13,8 @@
 
 1. Клонировать репозиторий:
    ```bash
-   git clone <URL>
-   cd kittigram
+   git clone https://github.com/Henstlly/-kittygram.git
+   cd -kittygram
    ```
 
 2. Создать файл `.env` по образцу `.env.example`:
@@ -24,10 +24,10 @@
 
 3. Запустить сборку и контейнеры:
    ```bash
-   docker compose up --build
+   docker compose up --build -d
    ```
 
-4. В отдельном терминале выполнить миграции:
+4. Выполнить миграции:
    ```bash
    docker compose exec backend python manage.py migrate
    ```
@@ -44,6 +44,11 @@
 
 7. Открыть в браузере: [http://localhost:8080](http://localhost:8080)
 
+8. Остановить проект:
+   ```bash
+   docker compose down
+   ```
+
 ## Локальный запуск (без Docker)
 
 ### Backend
@@ -53,6 +58,8 @@ python -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 python manage.py migrate
+python manage.py collectstatic
+python manage.py createsuperuser
 python manage.py runserver
 ```
 
@@ -62,6 +69,12 @@ cd kittigram_frontend
 npm ci
 npm run build
 ```
+
+## Документация API
+
+- **Swagger UI**: [http://localhost:8080/api/docs/swagger/](http://localhost:8080/api/docs/swagger/)
+- **ReDoc**: [http://localhost:8080/api/docs/redoc/](http://localhost:8080/api/docs/redoc/)
+- **OpenAPI Schema**: [http://localhost:8080/api/schema/](http://localhost:8080/api/schema/)
 
 ## Переменные окружения
 
