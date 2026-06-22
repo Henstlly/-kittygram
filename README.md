@@ -70,6 +70,8 @@ npm ci
 npm run build
 ```
 
+> **Примечание:** В Docker-сборке используется **Gunicorn** (см. `Dockerfile`). `python manage.py runserver` предназначен только для локальной отладки.
+
 ## Документация API
 
 - **Swagger UI**: [http://localhost:8080/api/docs/swagger/](http://localhost:8080/api/docs/swagger/)
